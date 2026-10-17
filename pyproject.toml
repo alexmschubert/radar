@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "radar-ehr"
+version = "0.1.0"
+description = "Parameter-efficient multi-timescale longitudinal EHR prediction"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  {name = "Alexander Schubert"},
+  {name = "Abhijith Varma Mudunuri"},
+]
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "torch>=2.2",
+  "scikit-learn>=1.4",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "ruff>=0.15"]
+
+[project.scripts]
+radar-prepare-mimic = "radar.mimic:main"
+radar-train = "radar.train:main"
+radar-predict = "radar.predict:main"
+radar-make-demo = "radar.demo:main"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

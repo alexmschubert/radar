@@ -1,0 +1,9 @@
+{
+  "attention_heads": 4,
+  "domain_hidden_dim": 64,
+  "dropout": 0.1,
+  "embedding_dim": 96,
+  "half_lives_days": [7, 30, 90, 180, 365, 1095, 3650, 36500],
+  "memory_channels": 8,
+  "visit_queries": 2
+}
